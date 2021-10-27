@@ -16,5 +16,5 @@ def main():
   scores = model.evaluate(x_test, y_test)
   print(model.metrics_names[1], scores[1] * 100)
 
-if __name__ = '__main__':
+if __name__ == '__main__':
   main()

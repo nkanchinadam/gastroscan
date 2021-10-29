@@ -7,7 +7,7 @@ def main():
   model.add(Flatten(input_shape=(352, 332, 3)))
   model.add(Dense(100, activation='relu'))
   model.add(Dense(20, activation='relu'))
-  model.add(Dense(5, activation='')) #replace with actual number of conditions
+  model.add(Dense(5, activation='simgoid')) #replace with actual number of conditions
 
   model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['sparse_categorical_accuracy'])
   model.fit(x_train, y_train, epochs=100, validation_data=(x_test, y_test))

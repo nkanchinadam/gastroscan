@@ -40,8 +40,8 @@ def delete_files(dir):
       delete_files(dir + entry.name + '/')
 
 def split_all(source_dataset, train_dataset, test_dataset):
-  os.remove(train_dataset)
-  os.remove(test_dataset)
+  shutil.rmtree(train_dataset)
+  shutil.rmtree(test_dataset)
   shutil.copytree(source_dataset, train_dataset)
   shutil.copytree(source_dataset, test_dataset)
   delete_files(test_dataset)

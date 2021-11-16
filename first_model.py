@@ -10,11 +10,11 @@ def main():
   model.add(Dense(5, activation='simgoid')) #replace with actual number of conditions
 
   model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['sparse_categorical_accuracy'])
-  model.fit(x_train, y_train, epochs=100, validation_data=(x_test, y_test))
+  #model.fit(x_train, y_train, epochs=100, validation_data=(x_test, y_test))   -- replace x_train, y_train, x_test, and y_test with actual dataset objects once they are created
   model.save('./model')
 
-  scores = model.evaluate(x_test, y_test)
-  print(model.metrics_names[1], scores[1] * 100)
+  #scores = model.evaluate(x_test, y_test)
+  #print(model.metrics_names[1], scores[1] * 100)
 
 if __name__ == '__main__':
   main()

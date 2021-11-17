@@ -2,6 +2,16 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten
 import numpy as np
 
+IMAGE_LABELS = './datasets/image-labels.csv'
+
+def readCSV():
+  f = open(IMAGE_LABELS, 'r')
+  labels = {}
+  for line in f.readlines():
+    parts = line.split(',')
+    labels[parts[0]] = parts[2]
+  return labels
+
 def main():
   model = Sequential()
   model.add(Flatten(input_shape=(352, 332, 3)))

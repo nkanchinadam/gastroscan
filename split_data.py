@@ -22,15 +22,14 @@ def transfer_images(source_folder, target_folder, to_copy):
     shutil.copyfile(source_folder + f.name, target_folder + f.name)
     os.remove(source_folder + f.name)
 
-def recur(source_dataset, train_dataset, test_dataset, filepath):
-  source_dir = source_dataset + filepath
+def recur(source_dir, train_dir, test_dir):
   for entry in os.scandir(source_dir):
     if entry.is_file():
       test_images = split_folder(source_dir)[1]
-      transfer_images(train_dataset + filepath, test_dataset + filepath, test_images)
+      transfer_images(train_dir, test_dir, test_images)
       break
     else:
-      recur(source_dataset, train_dataset, test_dataset, filepath + entry.name + '/')
+      recur(source_dir + entry.name + '/', train_dir + entry.name + '/', test_dir + entry.name + '/')
 
 def delete_files(dir):
   for entry in os.scandir(dir):
@@ -45,7 +44,7 @@ def split_all(source_dataset, train_dataset, test_dataset):
   shutil.copytree(source_dataset, train_dataset)
   shutil.copytree(source_dataset, test_dataset)
   delete_files(test_dataset)
-  recur(source_dataset, train_dataset, test_dataset, '')
+  recur(source_dataset, train_dataset, test_dataset)
 
 def main():
   to_split = input('Split Abnormality Dataset: Input 0\nsplit Condition Dataset: Input 1\n')

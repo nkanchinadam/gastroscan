@@ -26,8 +26,8 @@ def recur(source_dataset, train_dataset, test_dataset, filepath):
   source_dir = source_dataset + filepath
   for entry in os.scandir(source_dir):
     if entry.is_file():
-      train_images, test_images = split_folder(source_dir)
-      transfer_images(train_dataset + filepath, test_dataset + filepath, test_dataset)
+      test_images = split_folder(source_dir)[1]
+      transfer_images(train_dataset + filepath, test_dataset + filepath, test_images)
       break
     else:
       recur(source_dataset, train_dataset, test_dataset, filepath + entry.name + '/')

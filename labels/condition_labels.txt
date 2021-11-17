@@ -1,5 +1,5 @@
-barretts barretts barretts-short-segment
-esophagitis esophagitis-a esophagitis-b-d
-healthy cecum ileum pylorus retroflex-rectum retroflex-stomach z-line
+barretts
+esophagitis
+healthy
 hemorrhoids
-ulcerative-colitis ulcerative-colitis-grade-0-1 ulcerative-colitis-grade-1 ulcerative-colitis-grade-1-2 ulcerative-colitis-grade-2 ulcerative-colitis-grade-2-3 ulcerative-colitis-grade-3
+ulcerative-colitis

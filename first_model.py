@@ -4,6 +4,17 @@ import numpy as np
 
 IMAGE_LABELS = './datasets/image-labels.csv'
 
+def get_labels(filepath):
+  f = open(filepath, 'r')
+  labels = {}
+  count = 0
+  for line in f.readlines():
+    line.replace('\n', '')
+    labels[line] = count
+    labels[count] = line
+    count += 1
+  return labels
+
 def readCSV():
   f = open(IMAGE_LABELS, 'r')
   labels = {}

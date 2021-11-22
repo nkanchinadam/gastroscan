@@ -2,8 +2,6 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten
 import numpy as np
 
-IMAGE_LABELS = './datasets/image-labels.csv'
-
 def get_labels(filepath):
   f = open(filepath, 'r')
   labels = {}

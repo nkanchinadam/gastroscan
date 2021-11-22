@@ -1,15 +1,5 @@
 import os, random, shutil
 
-HYPERKVASIR = './datasets/hyper-kvasir/'
-
-ABNORMALITY_DATASET = './datasets/abnormality_dataset/'
-ABNORMALITY_TRAIN = './datasets/abnormality_train/'
-ABNORMALITY_TEST = './datasets/abnormality_test/'
-
-CONDITION_DATASET = './datasets/condition_dataset/'
-CONDITION_TRAIN = './datasets/condition_train/'
-CONDITION_TEST = './datasets/condition_test/'
-
 def split_folder(image_folder):
   images = []
   for image in os.scandir(image_folder):
@@ -50,9 +40,9 @@ def main():
   to_split = input('Split Abnormality Dataset: Input 0\nsplit Condition Dataset: Input 1\n')
 
   if to_split == '0':
-    split_all(ABNORMALITY_DATASET, ABNORMALITY_TRAIN, ABNORMALITY_TEST)
+    split_all(os.environ['ABNORMALITY_DATASET'], os.environ['ABNORMALITY_TRAIN'], os.environ['ABNORMALITY_TEST'])
   elif to_split == '1':
-    split_all(CONDITION_DATASET, CONDITION_TRAIN, CONDITION_TEST)
+    split_all(os.environ['CONDITION_DATASET'], os.environ['CONDITION_TRAIN'], os.environ['CONDITION_TEST'])
   else:
     raise ValueError('Input either a 0 or 1 to indicate which dataset to split')
 

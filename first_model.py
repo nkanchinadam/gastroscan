@@ -9,7 +9,7 @@ def get_labels(filepath):
   labels = {}
   count = 0
   for line in f.readlines():
-    line.replace('\n', '')
+    line = line.replace('\n', '')
     labels[line] = count
     labels[count] = line
     count += 1

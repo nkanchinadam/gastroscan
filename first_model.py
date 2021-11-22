@@ -15,14 +15,6 @@ def get_labels(filepath):
     count += 1
   return labels
 
-def readCSV():
-  f = open(IMAGE_LABELS, 'r')
-  labels = {}
-  for line in f.readlines():
-    parts = line.split(',')
-    labels[parts[0]] = parts[2]
-  return labels
-
 def main():
   model = Sequential()
   model.add(Flatten(input_shape=(352, 332, 3)))

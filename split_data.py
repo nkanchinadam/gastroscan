@@ -37,7 +37,7 @@ def split_all(source_dataset, train_dataset, test_dataset):
   recur(source_dataset, train_dataset, test_dataset)
 
 def main():
-  to_split = input('Split Abnormality Dataset: Input 0\nsplit Condition Dataset: Input 1\n')
+  to_split = input('Split Abnormality Dataset: Input 0\nSplit Condition Dataset: Input 1\n')
 
   if to_split == '0':
     split_all(os.environ['ABNORMALITY_DATASET'], os.environ['ABNORMALITY_TRAIN'], os.environ['ABNORMALITY_TEST'])

@@ -1,4 +1,4 @@
-import os, random, shutil
+import os, random, shutil, paths
 
 def split_folder(image_folder):
   images = []
@@ -40,9 +40,9 @@ def main():
   to_split = input('Split Abnormality Dataset: Input 0\nSplit Condition Dataset: Input 1\n')
 
   if to_split == '0':
-    split_all(os.environ['ABNORMALITY_DATASET'], os.environ['ABNORMALITY_TRAIN'], os.environ['ABNORMALITY_TEST'])
+    split_all(paths.ABNORMALITY_DATASET, paths.ABNORMALITY_TRAIN, paths.ABNORMALITY_TEST)
   elif to_split == '1':
-    split_all(os.environ['CONDITION_DATASET'], os.environ['CONDITION_TRAIN'], os.environ['CONDITION_TEST'])
+    split_all(paths.CONDITION_DATASET, paths.CONDITION_TRAIN, paths.CONDITION_TEST)
   else:
     raise ValueError('Input either a 0 or 1 to indicate which dataset to split')
 

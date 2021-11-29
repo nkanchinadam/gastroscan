@@ -3,6 +3,7 @@ from keras.layers import Dense, Flatten
 import numpy as np
 import os
 from PIL import Image
+import paths
 
 def get_labels(filepath):
   f = open(filepath, 'r')

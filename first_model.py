@@ -41,7 +41,6 @@ def get_data(dir):
       data.append(resized_image(dir + entry.name))
     else:
       data += get_data(dir + entry.name + '/')
-      print('bruh')
   return data
 
 def get_dataset(dir, labels):
@@ -79,17 +78,14 @@ def main():
     raise ValueError('Input either a 0 or 1 to indicate which dataset to create and train a model on')
 
   model = Sequential()
-  model.add(Flatten(input_shape=(352, 332, 3)))
+  model.add(Flatten(input_shape=(HEIGHT, WIDTH, 3)))
   model.add(Dense(100, activation='relu'))
   model.add(Dense(20, activation='relu'))
-  model.add(Dense(5, activation='simgoid')) #replace with actual number of conditions
+  model.add(Dense(len(labels) // 2, activation='sigmoid'))
 
   model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['sparse_categorical_accuracy'])
-  #model.fit(x_train, y_train, epochs=100, validation_data=(x_test, y_test))   -- replace x_train, y_train, x_test, and y_test with actual dataset objects once they are created
-  model.save('./model')
-
-  #scores = model.evaluate(x_test, y_test)
-  #print(model.metrics_names[1], scores[1] * 100)
+  model.fit(x_train, y_train, epochs=100, validation_data=(x_test, y_test))
+  model.save('./models/' + ('abnormalities' if to_create == '0' else 'conditions') + '/' + model_name)
 
 if __name__ == '__main__':
   main()

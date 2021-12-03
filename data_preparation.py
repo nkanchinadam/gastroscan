@@ -16,19 +16,21 @@ def get_labels(filepath):
     count += 1
   return labels
   
+def crop_image(data, img_height, img_width):
+  num_remove_from_height = img_height - HEIGHT
+  data = data[(num_remove_from_height // 2) + (num_remove_from_height % 2) : img_height - (num_remove_from_height // 2)]
+
+  num_remove_from_width = img_width - WIDTH
+  for i in range(len(data)):
+    data[i] = data[i][(num_remove_from_width // 2) + (num_remove_from_width % 2) : img_width - (num_remove_from_width // 2)]
+
 def load_image(filepath):
   img = Image.open(filepath)
   imrgb = img.convert('RGB')
   img_width, img_height = imrgb.size
   data = imrgb.getdata()  
   resized = [[[k for k in data[i * img_width + j]] for j in range(img_width)] for i in range(img_height)]
-
-  num_remove_from_height = img_height - HEIGHT
-  resized = resized[(num_remove_from_height // 2) + (num_remove_from_height % 2) : img_height - (num_remove_from_height // 2)]
-
-  num_remove_from_width = img_width - WIDTH
-  for i in range(len(resized)):
-    resized[i] = resized[i][(num_remove_from_width // 2) + (num_remove_from_width % 2) : img_width - (num_remove_from_width // 2)]
+  crop_image(resized, img_height, img_width)
   return resized
 
 def get_data(dir):

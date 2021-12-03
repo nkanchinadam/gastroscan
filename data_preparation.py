@@ -16,7 +16,7 @@ def get_labels(filepath):
     count += 1
   return labels
   
-def resized_image(filepath):
+def load_image(filepath):
   img = Image.open(filepath)
   imrgb = img.convert('RGB')
   img_width, img_height = imrgb.size
@@ -35,7 +35,7 @@ def get_data(dir):
   data = []
   for entry in os.scandir(dir):
     if entry.is_file():
-      data.append(resized_image(dir + entry.name))
+      data.append(load_image(dir + entry.name))
       print(dir + entry.name)
     else:
       data += get_data(dir + entry.name + '/')

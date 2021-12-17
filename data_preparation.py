@@ -16,16 +16,11 @@ def get_labels(filepath):
     count += 1
   return labels
 
-def load_image(filepath):
-  img = Image.open(filepath)
-  new_img = img.resize((WIDTH, HEIGHT))
-  return new_img.getdata()
-
 def get_data(dir):
   data = []
   for entry in os.scandir(dir):
     if entry.is_file():
-      data.append(load_image(dir + entry.name))
+      data.append(Image.open(dir + entry.name).resize((WIDTH, HEIGHT)).getdata())
       print(dir + entry.name)
     else:
       data += get_data(dir + entry.name + '/')

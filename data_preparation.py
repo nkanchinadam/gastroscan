@@ -50,8 +50,8 @@ def pool_image(data, window_height, window_width):
 
 def resize_image(data):
   while len(data) > HEIGHT or len(data[0]) > WIDTH:
-    window_height = 0 if len(data) == HEIGHT else IDEAL_WINDOW_SIZE[0] if (len(data) - HEIGHT) % (IDEAL_WINDOW_SIZE[0] - 1) == 0 else (len(data) - HEIGHT) % (IDEAL_WINDOW_SIZE[0] - 1) + 1
-    window_width = 0 if len(data[0]) == WIDTH else IDEAL_WINDOW_SIZE[1] if (len(data[0]) - WIDTH) % (IDEAL_WINDOW_SIZE[1] - 1) == 0 else (len(data[0]) - WIDTH) % (IDEAL_WINDOW_SIZE[1] - 1) + 1
+    window_height = 1 if len(data) == HEIGHT else IDEAL_WINDOW_SIZE[0] if (len(data) - HEIGHT) % (IDEAL_WINDOW_SIZE[0] - 1) == 0 else ((len(data) - HEIGHT) % (IDEAL_WINDOW_SIZE[0] - 1)) + 1
+    window_width = 1 if len(data) == WIDTH else IDEAL_WINDOW_SIZE[1] if (len(data) - WIDTH) % (IDEAL_WINDOW_SIZE[1] - 1) == 0 else ((len(data) - WIDTH) % (IDEAL_WINDOW_SIZE[1] - 1)) + 1
     data = pool_image(data, window_height, window_width)
   return data
 

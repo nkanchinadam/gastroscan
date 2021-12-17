@@ -4,8 +4,8 @@ from PIL import Image
 
 HEIGHT = 100
 WIDTH = 100
-IDEAL_WINDOW_SIZE = (5, 5)
-RESIZE_METHOD = 'resize' # 'crop' or 'resize'
+IDEAL_WINDOW_SIZE = (2, 2)
+RESIZE_METHOD = 'crop' # 'crop' or 'resize'
 
 def get_labels(filepath):
   f = open(filepath, 'r')

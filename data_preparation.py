@@ -18,7 +18,10 @@ def get_labels(filepath):
     count += 1
   return labels
   
-def crop_image(data, img_height, img_width):
+def crop_image(data):
+  img_height = len(data)
+  img_width = len(data[0])
+
   num_remove_from_height = img_height - HEIGHT
   data = data[(num_remove_from_height // 2) + (num_remove_from_height % 2) : img_height - (num_remove_from_height // 2)]
 

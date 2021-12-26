@@ -20,7 +20,8 @@ def get_data(dir):
   data = []
   for entry in os.scandir(dir):
     if entry.is_file():
-      data.append(Image.open(dir + entry.name).resize((WIDTH, HEIGHT)).getdata())
+      resized_data = Image.open(dir + entry.name).resize((WIDTH, HEIGHT)).getdata()
+      data.append([[[k for k in resized_data[i * WIDTH + j]] for j in range(WIDTH)] for i in range(HEIGHT)])
       print(dir + entry.name)
     else:
       data += get_data(dir + entry.name + '/')

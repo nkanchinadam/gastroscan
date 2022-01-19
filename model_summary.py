@@ -15,7 +15,7 @@ def max_prob(probs):
 def create_model_summary(model, x, y, labels):
   num_labels = len(labels) // 2
   classes = [[0 for j in range(num_labels)] for i in range(num_labels)]
-  probs = model.predict(x, y)
+  probs = model.predict(x)
   for i in range(len(probs)):
     max_index = max_prob(probs[i])
     classes[y[i]][max_index] += 1

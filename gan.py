@@ -51,10 +51,10 @@ def main():
   y = None
   if to_load == '0':
     labels = dp.get_labels(paths.ABNORMALITY_LABELS)
-    x, y = dp.get_dataset(paths.ABNORMALITY_DATASET, labels)
+    x = dp.get_dataset(paths.ABNORMALITY_DATASET, labels)[0]
   elif to_load == '1':
     labels = dp.get_labels(paths.CONDITION_LABELS)
-    x, y = dp.get_dataset(paths.CONDITION_DATASET, labels)
+    x = dp.get_dataset(paths.CONDITION_DATASET, labels)[0]
   else:
     raise ValueError('Input either a 0 or 1 to indicate which dataset to create and train a GAN on')
 

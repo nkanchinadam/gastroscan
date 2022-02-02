@@ -42,7 +42,7 @@ def train(dataset, epochs):
   for _ in range(epochs):
     for images in dataset:
       images = tf.cast(images, tf.dtypes.float32)
-      train_step(images)
+      train_step(images, generator, generator_optimizer, discriminator, discriminator_optimizer)
 
 def main():
   to_load = input('Create Abnormality GAN: Input 0\nCreate Condition GAN: Input 1\n')

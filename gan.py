@@ -14,6 +14,13 @@ def make_discriminator_model():
   model.add(tf.keras.layers.Dense(1))
   return model
 
+def get_discriminator_loss(real_predictions, fake_predictions):
+  real_predictions = tf.sigmoid(real_predictions)
+  fake_predictions = tf.sigmoid(fake_predictions)
+  real_loss = tf.losses.binary_crossentropy(tf.ones_like(real_predictions), real_predictions)
+  fake_loss = tf.losses.binary_crossentropy(tf.zeros_like(fake_predictions), fake_predictions)
+  return real_loss + fake_loss
+
 def main():
   to_load = input('Create Abnormality GAN: Input 0\nCreate Condition GAN: Input 1\n')
 

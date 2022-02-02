@@ -89,5 +89,7 @@ def main():
   generator = make_generator_model()
   generator_optimizer = tf.optimizers.Adam(1e-4)
 
+  train(x, 2, generator, generator_optimizer, discriminator, discriminator_optimizer)
+
 if __name__ == '__main__':
   main()

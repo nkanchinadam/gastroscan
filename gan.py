@@ -44,8 +44,9 @@ def main():
 
   BUFFER_SIZE = x_train.shape[0]
   BATCH_SIZE = 30
-  x_train = tf.data.Dataset.from_tensor_slices(x_train).shuffle(BUFFER_SIZE).batch(BATCH_SIZE)
-  x_test = tf.data.Dataset.from_tensor_slices(x_test).batch(BATCH_SIZE)
+
+  discriminator = make_discriminator_model()
+  discriminator_optimizer = tf.optimizers.Adam(1e-3)
 
 if __name__ == '__main__':
   main()

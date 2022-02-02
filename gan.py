@@ -21,6 +21,18 @@ def get_discriminator_loss(real_predictions, fake_predictions):
   fake_loss = tf.losses.binary_crossentropy(tf.zeros_like(fake_predictions), fake_predictions)
   return real_loss + fake_loss
 
+def make_generator_model():
+  model = tf.keras.Sequential()
+  model.add(tf.keras.layers.Dense(25*25*256, use_bias=False, input_shape=(100,)))
+  model.add(tf.keras.layers.BatchNormalization())
+  model.add(tf.keras.layers.Reshapae((25*25*256)))
+  model.add(tf.keras.layers.Conv2DTranspose(128, (3, 3), strides=(1, 1), padding='same', use_bias=False))
+  model.add(tf.keras.layers.BatchNormalization())
+  model.add(tf.keras.layers.Conv2DTranspose(64, (3, 3), strides=(2, 2), padding='same', use_bias=False))
+  model.add(tf.keras.layers.BatchNormalization())
+  model.add(tf.keras.layers.Conv2DTranspose(1, (3, 3), strides=(2, 2), padding='same', use_bias=False))
+  return model
+
 def main():
   to_load = input('Create Abnormality GAN: Input 0\nCreate Condition GAN: Input 1\n')
 

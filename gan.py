@@ -61,5 +61,8 @@ def main():
   discriminator = make_discriminator_model()
   discriminator_optimizer = tf.optimizers.Adam(1e-3)
 
+  generator = make_generator_model()
+  generator_optimizer = tf.optimizers.Adam(1e-4)
+
 if __name__ == '__main__':
   main()

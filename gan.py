@@ -5,6 +5,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 
+def make_discriminator_model():
+  model = tf.keras.Sequential()
+  model.add(tf.keras.layers.Conv2D(7, (3, 3), padding='same', input_shape=(100, 100, 3)))
+  model.add(tf.keras.layers.Flatten())
+  model.add(tf.keras.layers.LeakyReLU())
+  model.add(tf.keras.layers.Dense(50, activation='relu'))
+  model.add(tf.keras.layers.Dense(1))
+  return model
+
 def main():
   to_load = input('Create Abnormality GAN: Input 0\nCreate Condition GAN: Input 1\n')
 

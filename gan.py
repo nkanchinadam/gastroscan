@@ -33,6 +33,11 @@ def make_generator_model():
   model.add(tf.keras.layers.Conv2DTranspose(1, (3, 3), strides=(2, 2), padding='same', use_bias=False))
   return model
 
+def get_generator_loss(fake_predictions):
+  fake_predictions = tf.sigmoid(fake_predictions)
+  fake_loss = tf.losses.binary_crossentropy(tf.ones_like(fake_predictions), fake_predictions)
+  return fake_loss
+
 def main():
   to_load = input('Create Abnormality GAN: Input 0\nCreate Condition GAN: Input 1\n')
 

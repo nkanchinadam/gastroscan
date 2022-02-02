@@ -38,6 +38,12 @@ def get_generator_loss(fake_predictions):
   fake_loss = tf.losses.binary_crossentropy(tf.ones_like(fake_predictions), fake_predictions)
   return fake_loss
 
+def train(dataset, epochs):
+  for _ in range(epochs):
+    for images in dataset:
+      images = tf.cast(images, tf.dtypes.float32)
+      train_step(images)
+
 def main():
   to_load = input('Create Abnormality GAN: Input 0\nCreate Condition GAN: Input 1\n')
 

@@ -25,7 +25,7 @@ def make_generator_model():
   model = tf.keras.Sequential()
   model.add(tf.keras.layers.Dense(25*25*256, use_bias=False, input_shape=(100,)))
   model.add(tf.keras.layers.BatchNormalization())
-  model.add(tf.keras.layers.Reshapae((25*25*256)))
+  model.add(tf.keras.layers.Reshape((25*25*256)))
   model.add(tf.keras.layers.Conv2DTranspose(128, (3, 3), strides=(1, 1), padding='same'))
   model.add(tf.keras.layers.BatchNormalization())
   model.add(tf.keras.layers.Conv2DTranspose(64, (3, 3), strides=(2, 2), padding='same'))

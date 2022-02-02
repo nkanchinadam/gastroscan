@@ -38,7 +38,26 @@ def get_generator_loss(fake_predictions):
   fake_loss = tf.losses.binary_crossentropy(tf.ones_like(fake_predictions), fake_predictions)
   return fake_loss
 
-def train(dataset, epochs):
+def train_step(images, generator, generator_optimizer, discriminator, discriminator_optimizer):
+  fake_image_noise = np.random.randn(BATCH_SIZE, 100, type='float32')
+  with tf.GradientTape() as gen_tape, tf.GradientTape() as disc_tape:
+    generated_images = generator(fake_image_noise)
+    real_output = discriminator(images)
+    fake_output = discriminator(generated_images)
+
+    gen_loss = get_generator_loss(fake_output)
+    disc_loss = get_discriminator_loss(real_output, fake_output)    
+
+    gradients_of_generator = gen_tape.gradient(gen_loss, generator.trainable_variables)
+    gradients_of_discriminator = disc_tape.gradient(disc_loss, discriminator.trainable_variables)
+
+    generator_optimizer.apply_gradients(zip(gradients_of_generator, generator.trainable_variables))
+    discriminator_optimizer.apply_gradients(zip(gradients_of_discriminator, discriminator.trainable_variables))
+
+    print("generator loss:", np.mean(gen_loss))
+    print("discriminator loss: ", np.mean(disc_loss))
+
+def train(dataset, epochs, generator, generator_optimizer, discriminator, discriminator_optimizer):
   for _ in range(epochs):
     for images in dataset:
       images = tf.cast(images, tf.dtypes.float32)

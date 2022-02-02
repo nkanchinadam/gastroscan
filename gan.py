@@ -26,11 +26,11 @@ def make_generator_model():
   model.add(tf.keras.layers.Dense(25*25*256, use_bias=False, input_shape=(100,)))
   model.add(tf.keras.layers.BatchNormalization())
   model.add(tf.keras.layers.Reshapae((25*25*256)))
-  model.add(tf.keras.layers.Conv2DTranspose(128, (3, 3), strides=(1, 1), padding='same', use_bias=False))
+  model.add(tf.keras.layers.Conv2DTranspose(128, (3, 3), strides=(1, 1), padding='same'))
   model.add(tf.keras.layers.BatchNormalization())
-  model.add(tf.keras.layers.Conv2DTranspose(64, (3, 3), strides=(2, 2), padding='same', use_bias=False))
+  model.add(tf.keras.layers.Conv2DTranspose(64, (3, 3), strides=(2, 2), padding='same'))
   model.add(tf.keras.layers.BatchNormalization())
-  model.add(tf.keras.layers.Conv2DTranspose(1, (3, 3), strides=(2, 2), padding='same', use_bias=False))
+  model.add(tf.keras.layers.Conv2DTranspose(1, (3, 3), strides=(2, 2), padding='same'))
   return model
 
 def get_generator_loss(fake_predictions):

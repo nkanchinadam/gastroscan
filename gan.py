@@ -54,7 +54,7 @@ def train_step(images, generator, generator_optimizer, discriminator, discrimina
     generator_optimizer.apply_gradients(zip(gradients_of_generator, generator.trainable_variables))
     discriminator_optimizer.apply_gradients(zip(gradients_of_discriminator, discriminator.trainable_variables))
 
-    print("generator loss:", np.mean(gen_loss))
+    print("generator loss: ", np.mean(gen_loss))
     print("discriminator loss: ", np.mean(disc_loss))
 
 def train(dataset, epochs, generator, generator_optimizer, discriminator, discriminator_optimizer):

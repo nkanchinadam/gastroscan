@@ -4,6 +4,8 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import numpy as np
 
+BATCH_SIZE = 30
+
 def make_discriminator_model():
   model = tf.keras.Sequential()
   model.add(tf.keras.layers.Conv2D(7, (3, 3), padding='same', input_shape=(100, 100, 3)))
@@ -81,7 +83,6 @@ def main():
   x = (x - 127.5) / 127.5
 
   BUFFER_SIZE = x.shape[0]
-  BATCH_SIZE = 30
   x = tf.data.Dataset.from_tensor_slices(x).shuffle(BUFFER_SIZE).batch(BATCH_SIZE)
 
   discriminator = make_discriminator_model()

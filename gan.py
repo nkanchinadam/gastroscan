@@ -39,7 +39,7 @@ def get_generator_loss(fake_predictions):
   return fake_loss
 
 def train_step(images, generator, generator_optimizer, discriminator, discriminator_optimizer):
-  fake_image_noise = np.random.randn(BATCH_SIZE, 100, type='float32')
+  fake_image_noise = np.random.randn(BATCH_SIZE, 100).astype('float32')
   with tf.GradientTape() as gen_tape, tf.GradientTape() as disc_tape:
     generated_images = generator(fake_image_noise)
     real_output = discriminator(images)

@@ -60,6 +60,8 @@ def train_step(images, generator, generator_optimizer, discriminator, discrimina
 def train(dataset, epochs, generator, generator_optimizer, discriminator, discriminator_optimizer):
   for _ in range(epochs):
     for images in dataset:
+      if images.shape[0] != BATCH_SIZE:
+        continue
       images = tf.cast(images, tf.dtypes.float32)
       train_step(images, generator, generator_optimizer, discriminator, discriminator_optimizer)
 

@@ -70,7 +70,6 @@ def main():
   to_load = input('Create Abnormality GAN: Input 0\nCreate Condition GAN: Input 1\n')
 
   x = None
-  y = None
   if to_load == '0':
     labels = dp.get_labels(paths.ABNORMALITY_LABELS)
     x = dp.get_dataset(paths.ABNORMALITY_DATASET, labels)[0]

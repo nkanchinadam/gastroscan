@@ -1,0 +1,13 @@
+Initial CNN Abnormality Training Data
+healthy
+	healthy: 3493
+	hemorrhoids: 1
+	polyps: 3
+hemorrhoids
+	healthy: 3496
+	hemorrhoids: 3
+	polyps: 0
+polyps
+	healthy: 3185
+	hemorrhoids: 3
+	polyps: 311

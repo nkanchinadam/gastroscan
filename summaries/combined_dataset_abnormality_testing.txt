@@ -1,0 +1,13 @@
+Combined Dataset Abnormality Testing Data
+healthy
+	healthy: 1249
+	hemorrhoids: 4	
+  polyps: 250
+hemorrhoids
+  healthy: 2
+  hemorrhoids: 1499
+  polyps: 0
+polyps
+  healthy: 7
+  hemorrhoids: 0
+  polyps: 1494

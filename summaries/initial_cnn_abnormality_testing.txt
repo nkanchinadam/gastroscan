@@ -1,0 +1,13 @@
+Initial CNN Abnormality Testing Data
+healthy
+	healthy: 1500
+	hemorrhoids: 0
+	polyps: 3
+hemorrhoids
+	healthy: 1500
+	hemorrhoids: 1
+	polyps: 0
+polyps
+	healthy: 1362
+	hemorrhoids: 0
+	polyps: 139

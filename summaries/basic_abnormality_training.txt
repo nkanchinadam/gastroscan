@@ -1,0 +1,13 @@
+Basic NN Normality Training Data
+healthy
+	healthy: 3491
+	hemorrhoids: 0
+	polyps: 6
+hemorrhoids
+	healthy: 3499
+	hemorrhoids: 0
+	polyps: 0
+polyps
+	healthy: 3497
+	hemorrhoids: 0
+	polyps: 2

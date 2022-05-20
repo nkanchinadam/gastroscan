@@ -1,0 +1,13 @@
+Combined Dataset Abnormality Training Data
+healthy
+	healthy: 2853
+  hemorrhoids: 6
+  polyps: 638
+hemorrhoids
+	healthy: 1
+  hemorrhoids: 3498
+  polyps: 0
+polyps
+  healthy: 7
+  hemorrhoids: 0
+  polyps: 3492

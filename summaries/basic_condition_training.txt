@@ -1,0 +1,43 @@
+Basic NN Condition Training Data
+barretts
+	barretts: 0
+	esophagitis: 0
+	healthy: 3499
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 0
+esophagitis
+	barretts: 0
+	esophagitis: 0
+	healthy: 3499
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 0
+healthy
+	barretts: 0
+	esophagitis: 0
+	healthy: 3497
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 0
+hemorrhoids
+	barretts: 0
+	esophagitis: 0
+	healthy: 3499
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 0
+polyps
+	barretts: 0
+	esophagitis: 0
+	healthy: 3499
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 0
+ulcerative-colitis
+	barretts: 0
+	esophagitis: 0
+	healthy: 3497
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 0

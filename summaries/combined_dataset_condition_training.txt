@@ -1,0 +1,43 @@
+Combined Dataset Condition Training Data
+barretts
+	barretts: 3487
+	esophagitis: 8
+	healthy: 4
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 0
+esophagitis
+	barretts: 870
+	esophagitis: 2625
+	healthy: 4
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 0
+healthy
+	barretts: 386
+	esophagitis: 1968
+	healthy: 1142
+	hemorrhoids: 1
+	polyps: 0
+	ulcerative-colitis: 0
+hemorrhoids
+	barretts: 0
+	esophagitis: 2
+	healthy: 1
+	hemorrhoids: 3496
+	polyps: 0
+	ulcerative-colitis: 0
+polyps
+	barretts: 0
+	esophagitis: 5
+	healthy: 560
+	hemorrhoids: 0
+	polyps: 2934
+	ulcerative-colitis: 0
+ulcerative-colitis
+	barretts: 294
+	esophagitis: 3039
+	healthy: 151
+	hemorrhoids: 1
+	polyps: 0
+	ulcerative-colitis: 12

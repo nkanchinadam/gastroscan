@@ -1,0 +1,43 @@
+Initial CNN Condition Testing Data
+barretts
+	barretts: 707
+	esophagitis: 602
+	healthy: 191
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 1
+esophagitis
+	barretts: 51
+	esophagitis: 1108
+	healthy: 341
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 1
+healthy
+	barretts: 11
+	esophagitis: 230
+	healthy: 1257
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 5
+hemorrhoids
+	barretts: 0
+	esophagitis: 0
+	healthy: 1501
+	hemorrhoids: 0
+	polyps: 0
+	ulcerative-colitis: 0
+polyps
+	barretts: 0
+	esophagitis: 997
+	healthy: 489
+	hemorrhoids: 0
+	polyps: 8
+	ulcerative-colitis: 7
+ulcerative-colitis
+	barretts: 0
+	esophagitis: 1
+	healthy: 796
+	hemorrhoids: 0
+	polyps: 1
+	ulcerative-colitis: 705

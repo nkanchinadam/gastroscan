@@ -1,0 +1,13 @@
+Basic NN Abnormality Testing Data
+healthy
+	healthy: 1503
+	hemorrhoids: 0
+	polyps: 0
+hemorrhoids
+	healthy: 1501
+	hemorrhoids: 0
+	polyps: 0
+polyps
+	healthy: 1501
+	hemorrhoids: 0
+	polyps: 0

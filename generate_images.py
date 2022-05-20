@@ -17,13 +17,12 @@ def main():
   num_to_generate = int(input('Number of images to generate: '))
   random_noises = tf.random.normal((num_to_generate, 100))
   predictions = model.predict(random_noises)
-  print(predictions.shape)
-  print(predictions[0][0][0])
   for i in range(num_to_generate):
-    print(np.reshape(predictions[i], (dp.HEIGHT, dp.WIDTH, 3)))
     img = Image.fromarray((np.reshape(predictions[i], (dp.HEIGHT, dp.WIDTH, 3)) * 127.5 + 127.5).astype(np.uint8))
     img = img.convert('RGB')
-    img.save('./generated_images/' + label + '_' + str(i) + '.jpg')
+    if label in ['healthy', 'hemorrhoids', 'polyps']:
+      img.save(paths.ABNORMALITY_DATASET + label + '/generated/img' + str(i) + '.jpg')
+    img.save(paths.CONDITION_DATASET + label + '/generated/img' + str(i) + '.jpg')
 
 if __name__ == '__main__':
   main()

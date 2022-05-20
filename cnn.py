@@ -36,7 +36,7 @@ def main():
   model.add(Dense(len(labels) // 2, activation='sigmoid'))
 
   model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['sparse_categorical_accuracy'])
-  model.fit(x_train, y_train, epochs=100, validation_data=(x_test, y_test))
+  model.fit(x_train, y_train, epochs=50, validation_data=(x_test, y_test))
   model.save('./models/' + ('abnormalities' if to_create == '0' else 'conditions') + '/' + model_name)
 
 if __name__ == '__main__':

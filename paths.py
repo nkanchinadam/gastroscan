@@ -13,3 +13,4 @@ CONDITION_LABELS = './labels/condition_labels.txt'
 CONDITION_MODELS = './models/classifiers/conditions/'
 
 GANS = './models/gans/'
+SUMMARIES = './summaries/'

@@ -45,17 +45,21 @@ def main():
   train_classes = create_model_summary(model, x_train, y_train, labels)
   test_classes = create_model_summary(model, x_test, y_test, labels)
 
-  print('Training Data')
+  f_train = open(paths.SUMMARIES + ('abnormality' if to_load == '0' else 'condition') + '_training.txt', 'w')
+  f_train.write('Training Data\n')
   for i in range(len(train_classes)):
-    print(labels[i])
+    f_train.write(str(labels[i]) + '\n')
     for j in range(len(train_classes[i])):
-      print('\t' + labels[j] + ': ' + str(train_classes[i][j]))
-  print()
-  print('Testing Data')
+      f_train.write('\t' + labels[j] + ': ' + str(train_classes[i][j]) + '\n')
+  f_train.close()
+
+  f_test = open(paths.SUMMARIES + ('abnormality' if to_load == '0' else 'condition') + '_testing.txt', 'w')
+  f_test.write('Testing Data\n')
   for i in range(len(test_classes)):
-    print(labels[i])
+    f_test.write(str(labels[i]) + '\n')
     for j in range(len(test_classes[i])):
-      print('\t' + labels[j] + ': ' + str(test_classes[i][j]))
+      f_test.write('\t' + labels[j] + ': ' + str(test_classes[i][j]) + '\n')
+  f_test.close()
 
 if __name__ == "__main__":
   main()
